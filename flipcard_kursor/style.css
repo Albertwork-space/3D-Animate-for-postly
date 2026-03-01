@@ -1,0 +1,107 @@
+/* ====== Pengaturan umum halaman ====== */
+
+body {
+    font-family: Arial, sans-serif;
+    /* Gunakan font Arial */
+    display: flex;
+    /* Gunakan flexbox untuk tata letak */
+    justify-content: center;
+    /* Pusatkan kartu secara horizontal */
+    align-items: center;
+    /* Pusatkan kartu secara vertikal */
+    height: 100vh;
+    /* Tinggi halaman penuh (viewport height) */
+    background: linear-gradient(135deg, #f0f0f0, #dfe9f3);
+    /* Warna latar gradasi */
+    margin: 0;
+    /* Hilangkan margin default browser */
+}
+
+
+/* ====== Kartu utama ====== */
+
+.card {
+    width: 850px;
+    /* Lebar kartu (portrait) */
+    height: 1200px;
+    /* Tinggi kartu lebih besar dari lebar */
+    perspective: 1000px;
+    /* Tambahkan efek perspektif 3D untuk animasi */
+}
+
+
+/* ====== Bagian dalam kartu yang berputar ====== */
+
+.card-inner {
+    position: relative;
+    /* Posisi relatif terhadap .card */
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    /* Animasi rotasi halus selama 0.8 detik */
+    transform-style: preserve-3d;
+    /* Pertahankan efek 3D pada anak-anaknya */
+    cursor: pointer;
+    /* Tunjukkan pointer saat diarahkan */
+}
+
+
+/* Saat mouse diarahkan ke kartu → putar 180 derajat */
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+    /* Putar kartu di sumbu Y */
+}
+
+
+/* ====== Dua sisi kartu (depan dan belakang) ====== */
+
+.card-front,
+.card-back {
+    position: absolute;
+    /* Tempatkan sisi depan & belakang saling menumpuk */
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    /* Sembunyikan sisi belakang saat diputar */
+    border-radius: 16px;
+    /* Sudut kartu melengkung */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    /* Bayangan lembut di sekitar kartu */
+    display: flex;
+    /* Gunakan flexbox untuk tata letak isi */
+    flex-direction: column;
+    /* Teks ditata secara vertikal */
+    justify-content: center;
+    /* Pusatkan isi secara vertikal */
+    align-items: center;
+    /* Pusatkan isi secara horizontal */
+    padding: 20px;
+    /* Jarak dalam (inner spacing) */
+    box-sizing: border-box;
+    /* Hitung padding di dalam ukuran total */
+    text-align: center;
+    /* Teks di tengah */
+}
+
+
+/* ====== Tampilan depan kartu ====== */
+
+.card-front {
+    background-color: #ffffff;
+    /* Latar belakang putih */
+    color: #333;
+    /* Warna teks abu gelap */
+}
+
+
+/* ====== Tampilan belakang kartu ====== */
+
+.card-back {
+    background-color: #4CAF50;
+    /* Warna hijau */
+    color: white;
+    /* Teks putih */
+    transform: rotateY(180deg);
+    /* Balik sisi belakang agar muncul saat diputar */
+}

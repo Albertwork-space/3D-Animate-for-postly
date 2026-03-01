@@ -1,0 +1,175 @@
+/* ======== Gaya dasar untuk seluruh halaman ======== */
+
+body {
+    margin: 0;
+    /* Menghapus jarak default halaman */
+    font-family: Arial, sans-serif;
+    /* Font teks */
+    height: 100vh;
+    /* Tinggi 100% dari viewport */
+    background: linear-gradient(135deg, #74ABE2, #5563DE);
+    /* Warna gradasi */
+    display: flex;
+    /* Menggunakan Flexbox */
+    justify-content: center;
+    /* Menempatkan isi di tengah horizontal */
+    align-items: center;
+    /* Menempatkan isi di tengah vertikal */
+}
+
+
+/* ======== Kontainer utama untuk tombol dan kartu ======== */
+
+.container {
+    position: relative;
+    /* Agar posisi tombol bisa absolut terhadap container */
+    display: flex;
+    /* Menjadikan tombol dan kartu sejajar */
+    justify-content: center;
+    /* Menempatkan kartu di tengah */
+    align-items: center;
+    /* Rata tengah vertikal */
+    width: 850px;
+    /* Lebar area */
+    height: 1200px;
+    /* Tinggi area */
+}
+
+
+/* ======== Flipcard utama ======== */
+
+.flip-card {
+    background-color: transparent;
+    /* Tidak ada warna latar */
+    width: 100%;
+    /* Lebar kartu */
+    height: 100%;
+    /* Tinggi kartu */
+    perspective: 1000px;
+    /* Memberikan efek 3D agar bisa berputar */
+}
+
+
+/* ======== Bagian dalam flipcard yang akan berputar ======== */
+
+.flip-card-inner {
+    position: relative;
+    /* Untuk menampung dua sisi kartu */
+    width: 100%;
+    /* Lebar penuh kartu */
+    height: 100%;
+    /* Tinggi penuh kartu */
+    transition: transform 0.8s;
+    /* Waktu animasi berputar */
+    transform-style: preserve-3d;
+    /* Menyimpan efek 3D saat berputar */
+}
+
+
+/* Ketika class 'flipped' ditambahkan (dari JavaScript), kartu berputar 180 derajat */
+
+.flip-card-inner.flipped {
+    transform: rotateY(180deg);
+    /* Putar kartu ke belakang */
+}
+
+
+/* ======== Dua sisi kartu ======== */
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    /* Agar saling menimpa */
+    width: 100%;
+    /* Lebar penuh */
+    height: 100%;
+    /* Tinggi penuh */
+    backface-visibility: hidden;
+    /* Sisi belakang tidak terlihat saat diputar */
+    border-radius: 10px;
+    /* Sudut kartu membulat */
+    display: flex;
+    /* Gunakan flexbox untuk teks tengah */
+    align-items: center;
+    /* Rata vertikal */
+    justify-content: center;
+    /* Rata horizontal */
+    font-size: 20px;
+    /* Ukuran teks */
+    color: white;
+    /* Warna teks */
+}
+
+
+/* ======== Sisi depan kartu ======== */
+
+.flip-card-front {
+    background-color: #1E90FF;
+    /* Warna biru */
+}
+
+
+/* ======== Sisi belakang kartu ======== */
+
+.flip-card-back {
+    background-color: #4B0082;
+    /* Warna ungu */
+    transform: rotateY(180deg);
+    /* Posisi awal sisi belakang terbalik */
+}
+
+
+/* ======== Tombol navigasi kiri dan kanan ======== */
+
+.nav-btn {
+    position: absolute;
+    /* Tombol bebas diatur posisinya */
+    top: 50%;
+    /* Diletakkan di tengah vertikal */
+    transform: translateY(-50%);
+    /* Tepat di tengah */
+    font-size: 40px;
+    /* Ukuran simbol panah */
+    color: white;
+    /* Warna teks putih */
+    background: rgba(0, 0, 0, 0.3);
+    /* Latar transparan gelap */
+    border: none;
+    /* Hilangkan border default */
+    cursor: pointer;
+    /* Tunjukkan kursor tangan saat hover */
+    padding: 10px 15px;
+    /* Ruang di dalam tombol */
+    margin: -100px;
+    /* Ruang di luar tombol */
+    border-radius: 50%;
+    /* Bentuk tombol lingkaran */
+    transition: background 0.3s;
+    /* Efek halus saat hover */
+    z-index: 10;
+    /* Tombol di atas kartu */
+}
+
+
+/* Efek hover pada tombol */
+
+.nav-btn:hover {
+    background: rgba(0, 0, 0, 0.6);
+    /* Latar lebih gelap saat disentuh */
+}
+
+
+/* Tombol kiri berada di kiri kartu */
+
+#prev {
+    left: -50px;
+    /* Posisi 50px di kiri kartu */
+}
+
+
+/* Tombol kanan berada di kanan kartu */
+
+#next {
+    right: -50px;
+    /* Posisi 50px di kanan kartu */
+}

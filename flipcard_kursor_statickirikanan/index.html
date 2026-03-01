@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- Menandakan dokumen HTML5 -->
+<html lang="id">
+<!-- Bahasa: Bahasa Indonesia -->
+
+<head>
+    <meta charset="utf-8">
+    <!-- Responsif pada perangkat mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flipcard - Hinge Kiri Static</title>
+    <!-- Menghubungkan stylesheet eksternal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Kontainer utama untuk layout, menempatkan flipcard dekat tepi kiri -->
+    <main class="page">
+        <!-- Pembungkus card; ini menjaga posisi card dan perspektif 3D -->
+        <div class="flip-wrapper" tabindex="0" aria-label="Flip card, hover untuk membalik">
+            <!-- Elemen card yang berisi front dan back -->
+            <div class="flip-card">
+                <!-- Sisi depan card -->
+                <div class="face front">
+                    <h1>Depan</h1>
+                    <p>Arahkan kursor di atas untuk membalik.</p>
+                </div>
+                <!-- Sisi belakang card -->
+                <div class="face back">
+                    <h1>Belakang</h1>
+                    <p>Ini sisi belakang — engsel di tepi kiri.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Menyertakan script eksternal -->
+    <script src="script.js"></script>
+</body>
+
+</html>

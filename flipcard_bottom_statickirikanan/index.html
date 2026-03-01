@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- Menentukan bahwa dokumen ini adalah HTML5 -->
+<html lang="id">
+<!-- Menetapkan bahasa halaman menjadi Bahasa Indonesia -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Mengatur encoding karakter agar teks tampil dengan benar -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Membuat tampilan responsif di semua perangkat -->
+    <title>Flipcard Static Kiri dengan Tombol Tunggal</title>
+    <!-- Judul halaman web -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Menghubungkan file CSS eksternal -->
+</head>
+
+<body>
+    <!-- Awal isi konten halaman -->
+
+    <main class="stage">
+        <!-- Area utama tempat kartu ditampilkan di tengah halaman -->
+        <div class="flip-wrap" id="flipWrap">
+            <!-- Pembungkus kartu, memiliki perspektif 3D -->
+
+            <button class="nav-btn left" id="prevBtn" aria-label="Flip ke kiri">&lt;</button>
+            <!-- Tombol kiri (<): hanya untuk membalik kartu ke sisi belakang -->
+
+            <div class="flip-card" id="flipCard">
+                <!-- Elemen utama kartu yang dapat diputar (flip) -->
+                <div class="face front">
+                    <!-- Sisi depan kartu -->
+                    <div>
+                        <div style="font-size:28px;">Halaman Depan</div>
+                        <!-- Judul di sisi depan -->
+                        <div style="font-size:14px; margin-top:8px; opacity:0.9">
+                            Klik tombol &lt; untuk membalik ke kiri
+                            <!-- Petunjuk penggunaan -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="face back">
+                    <!-- Sisi belakang kartu -->
+                    <div>
+                        <div style="font-size:28px;">Halaman Belakang</div>
+                        <!-- Judul di sisi belakang -->
+                        <div style="font-size:14px; margin-top:8px; opacity:0.9">
+                            Klik tombol &gt; untuk kembali ke depan
+                            <!-- Petunjuk untuk kembali -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="nav-btn right" id="nextBtn" aria-label="Kembali ke depan">&gt;</button>
+            <!-- Tombol kanan (>): hanya untuk mengembalikan kartu ke sisi depan -->
+
+            <div class="hint">Gunakan tombol &lt; dan &gt; untuk mengontrol flip</div>
+            <!-- Teks kecil berisi petunjuk untuk pengguna -->
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <!-- Menyertakan file JavaScript eksternal -->
+</body>
+
+</html>

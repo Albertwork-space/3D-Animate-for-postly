@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- Menandakan dokumen ini adalah HTML5 -->
+<html lang="id">
+<!-- Bahasa dokumen ditetapkan ke Bahasa Indonesia -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Mengatur karakter encoding agar teks tampil dengan benar -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Membuat halaman tampil responsif di perangkat mobile -->
+
+    <title>Flipcard dengan Tombol</title>
+    <!-- Judul tab browser -->
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Menghubungkan file CSS eksternal -->
+</head>
+
+<body>
+    <!-- Konten utama halaman dimulai di sini -->
+
+    <div class="container">
+        <!-- Container untuk menampung tombol dan kartu -->
+
+        <button id="prev" class="nav-btn">&#8249;</button>
+        <!-- Tombol kiri dengan simbol “<” untuk membalik ke depan -->
+
+        <div class="flip-card">
+            <!-- Elemen utama kartu -->
+
+            <div class="flip-card-inner" id="card">
+                <!-- Elemen dalam kartu yang akan diputar saat tombol ditekan -->
+
+                <div class="flip-card-front">
+                    <!-- Sisi depan kartu -->
+                    Depan: Selamat Datang di Halaman 1
+                </div>
+
+                <div class="flip-card-back">
+                    <!-- Sisi belakang kartu -->
+                    Belakang: Ini Halaman 2
+                </div>
+            </div>
+        </div>
+
+        <button id="next" class="nav-btn">&#8250;</button>
+        <!-- Tombol kanan dengan simbol “>” untuk membalik ke belakang -->
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Menghubungkan file JavaScript eksternal -->
+</body>
+
+</html>

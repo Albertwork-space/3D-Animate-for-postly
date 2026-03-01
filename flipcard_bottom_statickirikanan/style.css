@@ -1,0 +1,205 @@
+/* ====================== RESET DASAR ====================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* Semua elemen menggunakan box-sizing border-box */
+
+html,
+body {
+    height: 100%;
+    /* Isi tinggi penuh layar */
+    margin: 0;
+    /* Hilangkan margin default */
+    font-family: system-ui, Arial, sans-serif;
+    /* Gunakan font modern */
+}
+
+
+/* ====================== AREA UTAMA ====================== */
+
+.stage {
+    height: 100%;
+    /* Isi seluruh layar vertikal */
+    display: flex;
+    /* Gunakan flexbox untuk perataan */
+    align-items: center;
+    /* Rata tengah vertikal */
+    justify-content: center;
+    /* Rata tengah horizontal */
+    background: linear-gradient(180deg, #f7f9fc, #e9f0fb);
+    /* Latar belakang gradasi lembut */
+}
+
+
+/* ====================== PEMBUNGKUS KARTU ====================== */
+
+.flip-wrap {
+    width: 360px;
+    /* Lebar kartu */
+    height: 480px;
+    /* Tinggi kartu */
+    perspective: 1400px;
+    /* Memberi efek 3D pada rotasi */
+    position: relative;
+    /* Agar tombol bisa ditempatkan di posisi absolut */
+}
+
+
+/* ====================== KARTU ====================== */
+
+.flip-card {
+    width: 100%;
+    /* Lebar penuh */
+    height: 100%;
+    /* Tinggi penuh */
+    position: relative;
+    /* Untuk positioning sisi depan dan belakang */
+    transform-style: preserve-3d;
+    /* Menjaga efek 3D */
+    transition: transform 0.6s ease;
+    /* Animasi halus saat kartu berputar */
+    transform-origin: left center;
+    /* Menjadikan tepi kiri sebagai sumbu rotasi (static kiri) */
+    /* transform-origin: right center;  */
+    /* ubah titik rotasi ke tepi kanan */
+}
+
+
+/* ====================== SISI DEPAN & BELAKANG ====================== */
+
+.face {
+    position: absolute;
+    /* Kedua sisi menumpuk satu sama lain */
+    inset: 0;
+    /* Posisi menutupi seluruh kartu */
+    backface-visibility: hidden;
+    /* Sembunyikan sisi belakang saat tidak menghadap layar */
+    border-radius: 12px;
+    /* Sudut kartu sedikit membulat */
+    overflow: hidden;
+    /* Sembunyikan elemen yang keluar batas kartu */
+    box-shadow: 0 8px 30px rgba(20, 30, 60, 0.12);
+    /* Bayangan lembut di bawah kartu */
+    display: flex;
+    /* Gunakan flex untuk memusatkan teks */
+    align-items: center;
+    /* Pusat vertikal */
+    justify-content: center;
+    /* Pusat horizontal */
+    font-size: 22px;
+    /* Ukuran teks */
+    font-weight: 600;
+    /* Tebal huruf sedang */
+    color: white;
+    /* Warna teks putih */
+}
+
+
+/* Warna sisi depan */
+
+.front {
+    background: linear-gradient(135deg, #5472ff, #8ac4ff);
+    /* Gradasi biru */
+}
+
+
+/* Warna sisi belakang */
+
+.back {
+    background: linear-gradient(135deg, #ff6b6b, #ffb86b);
+    /* Gradasi merah ke oranye */
+    transform: rotateY(-180deg);
+    /* Putar 180 derajat agar tampak normal saat dibalik */
+    /* background: linear-gradient(135deg, #ff6b6b, #ffb86b);
+    transform: rotateY(180deg);  */
+    /* arah rotasi dibalik jadi ke kanan */
+}
+
+
+/* ====================== TOMBOL NAVIGASI ====================== */
+
+.nav-btn {
+    position: absolute;
+    /* Tombol diletakkan relatif ke flip-wrap */
+    top: 50%;
+    /* Pusatkan secara vertikal */
+    transform: translateY(-50%);
+    /* Koreksi posisi tengah */
+    width: 48px;
+    /* Lebar tombol bulat */
+    height: 48px;
+    /* Tinggi tombol */
+    border-radius: 50%;
+    /* Membuat tombol berbentuk lingkaran */
+    border: none;
+    /* Hilangkan border default */
+    background: rgba(255, 255, 255, 0.9);
+    /* Warna putih transparan */
+    box-shadow: 0 6px 18px rgba(10, 20, 40, 0.08);
+    /* Bayangan lembut di bawah tombol */
+    font-size: 20px;
+    /* Ukuran simbol tombol */
+    cursor: pointer;
+    /* Ubah kursor jadi tangan */
+    user-select: none;
+    /* Cegah teks di dalam tombol bisa diseleksi */
+}
+
+
+/* Posisi tombol kiri dan kanan */
+
+.nav-btn.left {
+    left: -70px;
+}
+
+
+/* Tempatkan di kiri luar kartu */
+
+.nav-btn.right {
+    right: -70px;
+}
+
+
+/* Tempatkan di kanan luar kartu */
+
+
+/* Efek saat tombol diarahkan kursor */
+
+.nav-btn:hover {
+    transform: translateY(-50%) scale(1.05);
+    /* Sedikit membesar saat hover */
+}
+
+
+/* ====================== PETUNJUK TEKS ====================== */
+
+.hint {
+    position: absolute;
+    /* Letakkan di bawah kartu */
+    bottom: -36px;
+    /* Jarak dari bawah kartu */
+    left: 0;
+    right: 0;
+    text-align: center;
+    /* Teks di tengah */
+    color: #6b7280;
+    /* Warna abu keunguan */
+    font-size: 13px;
+    /* Ukuran kecil */
+}
+
+
+/* ====================== RESPONSIVE ====================== */
+
+@media (max-width:520px) {
+    .nav-btn.left {
+        left: 6px;
+    }
+    /* Geser tombol ke dalam di layar kecil */
+    .nav-btn.right {
+        right: 6px;
+    }
+}

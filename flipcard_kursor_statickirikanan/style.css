@@ -1,0 +1,134 @@
+/* Reset sederhana agar tampil lebih konsisten */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Halaman utama: gunakan tinggi penuh dan latar netral */
+
+.page {
+    min-height: 100vh;
+    /* tinggi layar penuh */
+    display: flex;
+    /* pakai flex untuk alignment */
+    align-items: center;
+    /* vertikal center */
+    background: #f4f6f8;
+    /* latar halaman */
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    justify-content: center;
+    /* konten di tengah halaman */
+    align-items: center;
+}
+
+
+/* Wrapper yang menempatkan flipcard di dekat tepi kiri */
+
+.flip-wrapper {
+    margin-left: 24px;
+    /* jarak dari tepi kiri halaman */
+    perspective: 1400px;
+    /* perspektif 3D untuk efek flip */
+    width: 850px;
+    /* lebar area card */
+    height: 1200px;
+    /* tinggi area card */
+    outline: none;
+    /* menghilangkan outline default; fokus ditangani di JS jika diperlukan */
+    position: relative;
+    /* untuk kontrol posisi anaknya */
+}
+
+
+/* Elemen flip-card yang sebenarnya; kita akan memutar ini */
+
+.flip-card {
+    width: 100%;
+    /* penuh dari wrapper */
+    height: 100%;
+    /* penuh dari wrapper */
+    position: relative;
+    /* agar face bisa absolute */
+    transform-style: preserve-3d;
+    /* menjaga 3D children */
+    transition: transform 600ms cubic-bezier(.2, .9, .2, 1);
+    /* transisi mulus */
+    transform-origin: left center;
+    /* PENTING: buat engsel di tepi kiri (static hinge) */
+    /* transform-origin: right center; */
+    /* PENTING: buat engsel di tepi kanan (static hinge) */
+    box-shadow: 0 8px 20px rgba(15, 20, 30, 0.08);
+    /* bayangan lembut */
+    border-radius: 8px;
+    /* sudut lembut */
+}
+
+
+/* Ketika wrapper diberi class 'flipped', kita putar flip-card 180deg pada sumbu Y */
+
+.flip-wrapper:hover .flip-card,
+.flip-wrapper.flipped .flip-card {
+    transform: rotateY(-180deg);
+    /* putar berlawanan arah jarum (bisa diubah) */
+}
+
+
+/* Gaya umum untuk kedua sisi card */
+
+.face {
+    position: absolute;
+    /* menumpuk dua sisi */
+    inset: 0;
+    /* top/right/bottom/left = 0 */
+    backface-visibility: hidden;
+    /* sembunyikan sisi belakang saat diputar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    user-select: none;
+    /* cegah pemilihan teks saat seret */
+}
+
+
+/* Sisi depan */
+
+.front {
+    background: linear-gradient(180deg, #ffffff, #f7fbff);
+    /* sedikit gradasi */
+    color: #0f1724;
+}
+
+
+/* Sisi belakang diputar 180deg sehingga muncul saat card diputar */
+
+.back {
+    background: linear-gradient(180deg, #0f1724, #092031);
+    color: #fff;
+    transform: rotateY(180deg);
+    /* posisikan sisi belakang terbalik awalnya */
+}
+
+
+/* Tip aksesibilitas: saat fokus keyboard pada wrapper, tunjukkan outline halus */
+
+.flip-wrapper:focus {
+    box-shadow: 0 0 0 4px rgba(56, 139, 253, 0.12);
+    border-radius: 10px;
+}
+
+
+/* Responsif: kecilkan card pada layar sempit */
+
+@media (max-width: 420px) {
+    .flip-wrapper {
+        width: 280px;
+        height: 170px;
+        margin-left: 12px;
+    }
+}
